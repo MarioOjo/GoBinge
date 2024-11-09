@@ -1,0 +1,340 @@
+/* General Styling */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Figtree', sans-serif;
+  background-color: #141518;
+  overflow-x: hidden;
+}
+
+/* Background with circular gradient effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(117, 145, 163, 100), transparent 50%),
+              radial-gradient(circle at 30% 0%, rgba(117, 145, 163, 100), transparent 50%);
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: rgba(20, 22, 26, 0.7);
+  color: #ffffff;
+  z-index: 1000;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+body.sidebar-collapsed .sidebar {
+  width: 80px;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  flex-shrink: 0;
+}
+
+#toggle-sidebar {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+#logo-icon {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+body.sidebar-collapsed .logo-container #logo-icon {
+  width: 50px;
+}
+
+/* Sidebar Menu Items */
+.sidebar ul {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.sidebar ul li {
+  padding: 20px 0;
+  width: 100%;
+}
+
+.sidebar ul li a {
+  color: #b5b5b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.sidebar ul li a:hover i,
+.sidebar ul li a.active {
+  color: #7591A3;
+}
+
+.sidebar ul li a i {
+  font-size: 1.5em;
+}
+
+body.sidebar-collapsed .sidebar ul li a span {
+  display: none;
+}
+
+/* Sidebar Search */
+.search-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: #b5b5b5;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-input {
+  width: 0;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #b5b5b5;
+  border-bottom: 1px solid #b5b5b5;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  margin-left: 10px;
+}
+
+.search-icon:hover {
+  color: #7591A3;
+  transition: color 0.3s ease;
+}
+
+.sidebar .search-input:focus {
+  outline: none;
+}
+
+.sidebar:not(.sidebar-collapsed) .search-input {
+  width: 140px;
+  opacity: 1;
+}
+
+.search-input::placeholder {
+  color: #b5b5b5;
+}
+
+/* Profile Image at Bottom */
+.profile {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Content Area Adjustments */
+.content {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+  padding: 0px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+body.sidebar-collapsed .content {
+  margin-left: 80px;
+}
+
+/* Carousel Styling */
+#featuredCarousel,
+#continueCarousel {
+  width: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+#featuredCarousel {
+  height: 60vh;
+  margin-bottom: 10px; /* Space between carousels */
+  width: calc(100vw - 250px);
+  margin-left: 250px;
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease-in-out;
+}
+
+body.sidebar-collapsed #featuredCarousel {
+  width: calc(100vw - 80px);
+  margin-left: 80px;
+}
+
+#continueCarousel {
+  padding: 0 20px;
+  height: 20vh;
+  margin-top: 20px; /* Space between carousels */
+  width: calc(100vw - 250px);
+  margin-left: 250px;
+}
+
+body.sidebar-collapsed #continueCarousel {
+  width: calc(100vw - 80px);
+  margin-left: 80px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#continueCarousel .carousel-control-prev {
+  left: 10px;
+}
+
+#continueCarousel .carousel-control-next {
+  right: 10px;
+}
+
+/* Carousel Image and Text Styling */
+.carousel-caption {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+#continueCarousel .carousel-item img {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+
+#continueCarousel .carousel-item p {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  color: white;
+  font-size: 16px;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Featured Carousel Styling */
+#featuredCarousel .carousel-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#featuredCarousel .carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  text-align: left;
+  color: white;
+  z-index: 10;
+}
+
+#featuredCarousel .carousel-caption h1 {
+  font-size: 3rem;
+}
+
+#featuredCarousel .carousel-caption p {
+  font-size: 1.25rem;
+}
+
+.genre-tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.genre-tag {
+  background-color: rgba(117, 145, 163, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* Bottom Carousel (Continue Watching) */
+#continueCarousel .carousel-inner img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#continueCarousel .carousel-item {
+  padding: 10px;
+}
+
+#continueCarousel .carousel-item h5 {
+  text-align: left;
+  color: white;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+
+/* Additional Carousel Styles */
+.carousel-container {
+  max-width: 80%;
+  margin: auto;
+}
+
+/* Card Carousel */
+.card {
+  position: relative;
+}
+
+.card-img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}

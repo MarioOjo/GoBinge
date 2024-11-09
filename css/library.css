@@ -1,0 +1,186 @@
+/* General Styling */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Figtree', sans-serif;
+    background-color: #141518;
+    overflow-x: hidden;
+}
+
+
+/* Background with circular gradient effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(117, 145, 163, 100), transparent 50%), /* Top left circular gradient */
+              radial-gradient(circle at 30% 0%, rgba(117, 145, 163, 100), transparent 50%); /* Bottom right circular gradient */
+   /* Ensure the background is behind the content */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: rgba(20, 22, 26, 70);
+    color: #ffffff;
+    z-index: 1000;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+body.sidebar-collapsed .sidebar {
+    width: 80px;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    flex-shrink: 0;
+}
+
+#toggle-sidebar {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+#logo-icon {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Prevent logo from resizing or moving in collapsed state */
+body.sidebar-collapsed .logo-container #logo-icon {
+    width: 50px;
+}
+
+/* Sidebar Menu Items */
+.sidebar ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar ul li {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    color: #b5b5b5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar ul li a:hover i {
+  color: #7591A3; /* Replace #desiredColor with the color you want on hover */
+}
+
+.sidebar ul li a.active {
+    color: #ffffff;
+}
+
+.sidebar ul li a i {
+    font-size: 1.5em;
+}
+
+/* Hide text in collapsed state */
+body.sidebar-collapsed .sidebar ul li a span {
+    display: none;
+}
+
+/* Sidebar Search */
+.search-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    color: #b5b5b5;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-input {
+    width: 0;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color: #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-left: 10px;
+}
+
+.sidebar .search-input:focus {
+    outline: none;
+}
+
+.sidebar:not(.sidebar-collapsed) .search-input {
+    width: 140px;
+    opacity: 1;
+}
+
+.search-input::placeholder {
+    color: #b5b5b5;
+}
+
+/* Profile Image at Bottom */
+.profile {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Content Area Adjustments */
+.content {
+    margin-left: 250px;
+   transition: margin-left 0.3s ease-in-out;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+body.sidebar-collapsed .content {
+    margin-left: 80px;
+}

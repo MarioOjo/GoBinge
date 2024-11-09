@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/loading.css">
+    <title>GoBinge</title>
+   
+</head>
+<body>
+
+    <!-- Logo Button that triggers the loading animation -->
+    <div class="animation">
+        <a href="#" id="logoLink"> 
+            <img src="../Assets/Term4Logo.png" alt="GoBinge Logo">
+        </a>
+    </div>
+
+    <!-- Loading Spinner Overlay -->
+    <div class="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoLink = document.getElementById('logoLink');
+            const loadingOverlay = document.querySelector('.loading-overlay');
+
+            logoLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent immediate navigation
+
+                // Show the loading overlay
+                loadingOverlay.style.display = 'flex';
+
+                // Set a timeout for 8 seconds, then fade out the loading animation
+                setTimeout(() => {
+                    loadingOverlay.classList.add('fade-out');
+                    // Wait for fade-out to finish before navigating
+                    setTimeout(() => {
+                        window.location.href = '../index.html';
+                    }, 3000); // 2 seconds for fade-out
+                }, 5000); // Initial 6 seconds for loading animation
+            });
+        });
+    </script>
+</body>
+</html>

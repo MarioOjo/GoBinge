@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GoBinge - Movies</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Figtree Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/moviepage.css">
+</head>
+
+<body class="sidebar-collapsed">
+    <!-- Sidebar -->
+<div class="sidebar" id="offcanvas-sidebar">
+    <div class="logo-container">
+        <button id="toggle-sidebar" class="btn">
+            <img src="../assets/logo3.png" alt="Logo" id="logo-icon">
+        </button>
+    </div>
+    <ul class="nav flex-column mt-4">
+        <li class="nav-item">
+            <a class="nav-link active" href="..//index.html"><i class="fas fa-home"></i><span> Home</span></a>
+        </li>
+        <li class="nav-item search-item">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Titles, people, genres">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="..//Pages/moviepage.html"><i class="fas fa-tv"></i><span> Movies</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-heart"></i><span> My List</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i><span> Profile</span></a>
+        </li>
+    </ul>
+    <div class="profile mt-auto">
+        <img src="..//assets/profile.png" alt="Profile Image" class="profile-img">
+    </div>
+</div>
+
+    
+    <div class="movie-preview-container">
+        <img src="../assets/movie.jpg" alt="Movie Preview" class="movie-preview-image">
+        <div class="movie-info-overlay">
+            <h1 class="movie-title">The Remarkable Life of Ibelin</h1>
+            <p class="movie-description">The winner of the Amanda awards for Best Film and Best Editing...</p>
+            <div class="buttons">
+                <button class="btn play-button"><i class="fas fa-play"></i> Play</button>
+                <button class="btn info-button">More Info</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Title and Dropdown -->
+        <div class="d-flex justify-content-start align-items-center mt-5 mb-4">
+            <h1 class="text-white">Movies</h1>
+            <div class="dropdown ms-3">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Genres
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#" data-value="horror">Horror</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="action">Action</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="comedy">Comedy</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="drama">Drama</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="sci-fi">Sci-Fi</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="thriller">Thriller</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="romance">Romance</a></li>
+                    <li><a class="dropdown-item" href="#" data-value="documentary">Documentary</a></li>
+                </ul>
+            </div>
+        </div>
+
+      <!-- Movie Grid -->
+      <div class="movie-grid">
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 1">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 1</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat the above structure for each movie card -->
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <img src="../assets/movie.jpg" class="card-img-top" alt="Movie 2">
+            <div class="movie-info">
+                <h5 class="movie-title">Movie Title 2</h5>
+                <div class="movie-actions">
+                    <button class="btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn add-list-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="action-label">Add to My List</span>
+                    </button>
+                    <button class="btn heart-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Add three more movie cards following the same structure -->
+    </div>
+</div>
+        
+
+
+        
+        
+        
+        
+    <!-- Bootstrap and jQuery Scripts -->
+    
+<!-- jQuery (if necessary, though not required for Bootstrap 5) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+<!-- Popper.js (required for Bootstrap dropdowns) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
+    
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/moviepage.js"></script>
+    
+  
+
+</html>

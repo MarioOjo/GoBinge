@@ -1,0 +1,419 @@
+/* General Styling */
+body{
+    height: 100%;
+    margin: 0;
+    font-family: 'Figtree', sans-serif;
+    background-color: #141518;
+    overflow-x: hidden;
+}
+
+/* Background with circular gradient effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(117, 145, 163, 100), transparent 50%), /* Top left circular gradient */
+                radial-gradient(circle at 30% 0%, rgba(117, 145, 163, 100), transparent 50%); /* Bottom right circular gradient */
+     /* Ensure the background is behind the content */
+}
+
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: rgba(20, 22, 26, 70);
+    color: #ffffff;
+    z-index: 1000;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+body.sidebar-collapsed .sidebar {
+    width: 80px;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    flex-shrink: 0;
+}
+
+#toggle-sidebar {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+#logo-icon {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Prevent logo from resizing or moving in collapsed state */
+body.sidebar-collapsed .logo-container #logo-icon {
+    width: 50px;
+}
+
+/* Sidebar Menu Items */
+.sidebar ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar ul li {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    color: #b5b5b5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar ul li a:hover i {
+  color: #7591A3; /* Replace #desiredColor with the color you want on hover */
+}
+
+.sidebar ul li a.active {
+    color: #ffffff;
+}
+
+.sidebar ul li a i {
+    font-size: 1.5em;
+}
+
+/* Hide text in collapsed state */
+body.sidebar-collapsed .sidebar ul li a span {
+    display: none;
+}
+
+/* Sidebar Search */
+.search-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    color: #b5b5b5;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-input {
+    width: 0;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color: #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-left: 10px;
+}
+/* Sidebar Search Icon Hover */
+.search-icon:hover {
+    color: #7591A3; /* Replace with your desired hover color */
+    transition: color 0.3s ease;
+  }
+.sidebar .search-input:focus {
+    outline: none;
+}
+
+.sidebar:not(.sidebar-collapsed) .search-input {
+    width: 140px;
+    opacity: 1;
+}
+
+.search-input::placeholder {
+    color: #b5b5b5;
+}
+
+/* Profile Image at Bottom */
+.profile {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Content Area Adjustments */
+.content {
+    margin-left: 250px;
+   transition: margin-left 0.3s ease-in-out;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+body.sidebar-collapsed .content {
+    margin-left: 80px;
+}
+
+
+/* Movie Grid */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px 0;
+
+}
+
+/* Movie Cards */
+/* General Styling for movie cards */
+/* Movie Grid */
+.movie-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+/* Movie Cards */
+.movie-card {
+    position: relative;
+    flex: 1 1 18%; /* This allows five items per row */
+    max-width: 18%; /* Control the size of each card */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: scale(1.1); /* Enlarges the card */
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Movie Info Overlay */
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.movie-card:hover .movie-info {
+    opacity: 1;
+}
+
+/* Action Buttons on hover */
+.movie-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.movie-actions .btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.movie-actions .btn:hover {
+    opacity: 0.8;
+}
+
+/* Heart icon */
+.heart-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* For the buttons (play, add/remove, and heart) */
+.play-btn,
+.add-list-btn,
+.heart-btn {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    color: #EEf2F5;
+    cursor: pointer;
+}
+
+.heart-btn i,
+.add-list-btn i,
+.play-btn i {
+    font-size: 1.5rem;
+}
+
+
+.search-input::placeholder {
+    color: #b5b5b5;
+}
+/* Movie Preview */
+/* Movie Preview */
+.movie-preview-container {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Adjust the height of the preview image */
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.movie-preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.movie-info-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+    text-align: center;
+    color: #EEf2F5;
+}
+
+.movie-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.movie-description {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    max-width: 600px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.play-button, .info-button {
+    background-color: #EEf2F5;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover, .info-button:hover {
+    background-color: #7591A3;
+}
+
+.movie-preview-container.scrolled {
+    height: 30vh; /* Adjust this value when scrolled up */
+}
+
+body.sidebar-collapsed .movie-preview-container {
+    margin-left: 90px; /* Adjust image when the sidebar is collapsed */
+    width: calc(100% - 90px);
+}
+
+body .movie-preview-container {
+    margin-left: 270px; /* Adjust image when sidebar is expanded */
+    width: calc(100% - 270px);
+}
+
+
+/* Ensure dropdown overlaps the preview image */
+.dropdown {
+    z-index: 1050;
+    position: relative;
+}
+/* Responsive Design Adjustments */
+@media (max-width: 1200px) {
+    .movie-card {
+        flex: 1 1 23%; /* Four cards per row on medium screens */
+        max-width: 23%;
+    }
+}
+
+@media (max-width: 992px) {
+    .movie-card {
+        flex: 1 1 30%; /* Three cards per row on smaller screens */
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        flex: 1 1 45%; /* Two cards per row on tablet screens */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-card {
+        flex: 1 1 100%; /* One card per row on mobile screens */
+        max-width: 100%;
+    }
+
+    .content {
+        margin-left: 80px;
+    }
+
+    body.sidebar-collapsed .content {
+        margin-left: 0;
+    }
+}
