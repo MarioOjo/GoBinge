@@ -69,13 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initialize Isotope for grid layout
-    new Isotope(grid, {
-        itemSelector: '.movie-card',
-        layoutMode: 'fitRows',
-        fitRows: { gutter: 5 }
-    });
-
     // Movie Preview Shrinking Effect on Scroll
     window.addEventListener('scroll', function () {
         if (window.scrollY > 100) {
@@ -85,13 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Add and Remove from My List functionality
-    document.querySelectorAll('.add-list-btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            const icon = this.querySelector('i');
-            const label = this.querySelector('.action-label');
+    // Event delegation for Add to List and Heart button
+    document.querySelector('.movie-grid').addEventListener('click', function (event) {
+        const target = event.target;
 
-            if (this.classList.contains('active')) {
+        // Handle Add to List button
+        if (target.closest('.add-list-btn')) {
+            const button = target.closest('.add-list-btn');
+            const icon = button.querySelector('i');
+            const label = button.querySelector('.action-label');
+
+            if (button.classList.contains('active')) {
                 icon.classList.replace('fa-check', 'fa-plus');
                 label.textContent = 'Add to My List';
             } else {
@@ -99,14 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 label.textContent = 'Remove from My List';
             }
 
-            this.classList.toggle('active');
-        });
-    });
+            button.classList.toggle('active');
+        }
 
-    // Heart Button functionality (Like/Dislike)
-    document.querySelectorAll('.heart-btn').forEach(function (heartButton) {
-        heartButton.addEventListener('click', function () {
-            const heartIcon = this.querySelector('i');
+        // Handle Heart button
+        if (target.closest('.heart-btn')) {
+            const button = target.closest('.heart-btn');
+            const heartIcon = button.querySelector('i');
 
             if (heartIcon.classList.contains('far')) { // Outline heart
                 heartIcon.classList.remove('far');
@@ -115,6 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 heartIcon.classList.remove('fas', 'filled');
                 heartIcon.classList.add('far'); // Outline heart
             }
-        });
+        }
     });
 });
